@@ -121,7 +121,7 @@ export default {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  rootDir: "test",
+  rootDir: "src",
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
@@ -164,7 +164,7 @@ export default {
   // ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
-  testRegex: ".*\\..*test\\.ts$",
+  testRegex: ".*\\..*spec\\.ts$",
 
   // This option allows the use of a custom results processor
   // testResultsProcessor: undefined,

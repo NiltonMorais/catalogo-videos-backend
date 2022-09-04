@@ -25,7 +25,7 @@ test('Deve criar uma categoria passando o id', () => {
 });
 
 test('Deve retornar excessão ao criar categoria com id inválido', () => {
-    expect(() => new Category('Movie', 'My Videos', false, new Date(), new Id('123'))).toThrow("Invalid Id for value '123'");
+    expect(() => new Category('Movie', 'My Videos', false, new Date(), new Id('fake id'))).toThrow("Invalid Id for value 'fake id'");
 });
 
 test('Deve criar uma categoria inativa', () => {

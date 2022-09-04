@@ -11,5 +11,7 @@ test("Deve hidratar um id", function(){
 });
 
 test('Deve retornar excessão ao criar id inválido', () => {
-    expect(() => new Id('123')).toThrow(new Error("Invalid Id for value '123'"));
+    const validateSpy = jest.spyOn(Id.prototype as any, 'validate');
+    expect(() => new Id('fake id')).toThrow(new Error("Invalid Id for value 'fake id'"));
+    expect(validateSpy).toHaveBeenCalled();
 });

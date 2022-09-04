@@ -1,4 +1,6 @@
 FROM node:18.7-slim as base
+RUN apt update && apt install -y --no-install-recommends \
+    git
 USER node
 WORKDIR /home/node/app
 #COPY package.json ./

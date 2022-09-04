@@ -1,7 +1,9 @@
 FROM node:18.7-slim as base
 RUN apt update && apt install -y --no-install-recommends \
     git \
-    ca-certificates
+    ca-certificates \
+    openjdk-11-jre
+ENV JAVA_HOME="/usr/lib/jvm/java-11-openjdk-am64"        
 USER node
 WORKDIR /home/node/app
 #COPY package.json ./

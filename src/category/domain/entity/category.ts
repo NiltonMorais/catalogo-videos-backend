@@ -1,4 +1,4 @@
-import Id from "./id";
+import Id from "../value-object/id";
 export default class Category {
     
     constructor(readonly name: string, 

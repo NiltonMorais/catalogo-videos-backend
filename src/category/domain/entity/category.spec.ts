@@ -1,5 +1,5 @@
 import Category from './category';
-import Id from './id';
+import Id from '../value-object/id';
 
 test('Deve criar uma categoria', () => {
     const category = new Category('Movie', 'My Videos', true, new Date('2022-09-03T20:34:09.323Z'));

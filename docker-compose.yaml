@@ -1,9 +1,11 @@
 version: '3.7'
 services:
   app:
-    container_name: catalogo-videos-backend
+    container_name: catalogo-videos-backend-node
     build:
       context: .
       target: dev
     volumes:
       - ./:/home/node/app
+      - ./.docker/zsh/powerlevel10k/.p10k.zsh:/home/node/.p10k.zsh:delegated
+      - ./.docker/zsh/history:/home/node/zsh:delegated

@@ -37,3 +37,23 @@ test('Deve criar uma categoria inativa', () => {
     expect(category.created_at.toISOString()).toBe('2022-09-03T20:34:09.323Z');
 });
 
+test('Deve atualizar uma categoria', () => {
+    const category = new Category('Movie', 'My Videos');
+    category.update('Movie2', 'My Description')
+    expect(category.name).toBe('Movie2');
+    expect(category.description).toBe('My Description');
+});
+
+test('Deve ativar uma categoria', () => {
+    const category = new Category('Movie', 'My Videos', false);
+    expect(category.is_active).toBeFalsy();
+    category.activate()
+    expect(category.is_active).toBeTruthy();
+});
+
+test('Deve desativar uma categoria', () => {
+    const category = new Category('Movie', 'My Videos', true);
+    expect(category.is_active).toBeTruthy();
+    category.desactivate()
+    expect(category.is_active).toBeFalsy();
+});

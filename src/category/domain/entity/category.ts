@@ -6,6 +6,7 @@ export default class Category {
         private _is_active: boolean = true, 
         readonly created_at: Date = new Date(), 
         readonly id: Id = new Id()){
+            this.validate();
     }
 
     update(name: string, description: string): void {
@@ -31,5 +32,14 @@ export default class Category {
     
     get is_active(): boolean {
         return this._is_active;
+    }
+
+    private validate(): void {
+        if(this.name === null || this.name === undefined || this.name === ''){
+            throw new Error('Name is required');
+        }
+        if(this.name.length > 120){
+            throw new Error('Name must be less or equal than 120 characters');
+        }
     }
 }

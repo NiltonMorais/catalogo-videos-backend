@@ -37,6 +37,17 @@ test('Deve retornar excessão ao criar categoria com nome maior que 120 caracter
     .toThrow('Name must be less or equal than 120 characters');
 });
 
+test('Deve retornar excessão ao atualizar categoria com nome vazio', () => {
+    const category = new Category('Movie', 'My Videos');
+    expect(() => category.update('', '')).toThrow('Name is required');
+});
+
+test('Deve retornar excessão ao atualizar categoria com nome maior que 120 caracteres', () => {
+    const category = new Category('Movie', 'My Videos');
+    expect(() => category.update('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', ''))
+    .toThrow('Name must be less or equal than 120 characters');
+});
+
 test('Deve criar uma categoria inativa', () => {
     const category = new Category('Movie', 'My Videos', false, new Date('2022-09-03T20:34:09.323Z'));
     expect(category.id.value).toHaveLength(36);

@@ -12,6 +12,7 @@ export default class Category {
     update(name: string, description: string): void {
         this._name = name;
         this._description = description;
+        this.validate();
     }
 
     activate(): void{

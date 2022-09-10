@@ -1,11 +1,11 @@
-import Id from "../value-object/id";
+import Id from "../value-object/Id";
 export default class Category {
     
     constructor(private _name: string, 
         private _description: string = '', 
         private _is_active: boolean = true, 
         readonly created_at: Date = new Date(), 
-        readonly id: Id = new Id()){
+        private readonly _id: Id = new Id()){
             this.validate();
     }
 
@@ -33,6 +33,10 @@ export default class Category {
     
     get is_active(): boolean {
         return this._is_active;
+    }
+
+    get id(): string {
+        return this._id.toString();
     }
 
     private validate(): void {

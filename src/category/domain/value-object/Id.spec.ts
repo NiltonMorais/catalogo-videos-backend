@@ -1,4 +1,4 @@
-import Id from "./id"
+import Id from "./Id"
 
 test("Deve criar um id", function(){
     const id = new Id();
@@ -16,4 +16,11 @@ test('Deve retornar excessão ao criar id inválido', () => {
     const validateSpy = jest.spyOn(Id.prototype as any, 'validate');
     expect(() => new Id('fake id')).toThrow(new Error("Invalid Id for value 'fake id'"));
     expect(validateSpy).toHaveBeenCalled();
+});
+
+test("Deve converter um id em string", function(){
+    const id = new Id('723b8dcd-e9f2-4c33-8758-8bdcb8a862c5');
+    const idString = `${id}`;
+    expect(idString).toBe('723b8dcd-e9f2-4c33-8758-8bdcb8a862c5');
+    expect(id.toString()).toBe('723b8dcd-e9f2-4c33-8758-8bdcb8a862c5');
 });

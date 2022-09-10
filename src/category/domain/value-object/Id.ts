@@ -13,4 +13,8 @@ export default class Id {
             throw new Error(`Invalid Id for value '${this.value}'`);
         }
     }
+
+    toString(): string {
+        return this.value;
+    }
 }

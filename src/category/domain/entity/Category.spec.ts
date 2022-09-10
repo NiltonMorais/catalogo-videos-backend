@@ -1,9 +1,9 @@
-import Category from './category';
-import Id from '../value-object/id';
+import Category from './Category';
+import Id from '../value-object/Id';
 
 test('Deve criar uma categoria', () => {
     const category = new Category('Movie', 'My Videos', true, new Date('2022-09-03T20:34:09.323Z'));
-    expect(category.id.value).toHaveLength(36);
+    expect(category.id).toHaveLength(36);
     expect(category.name).toBe('Movie');
     expect(category.description).toBe('My Videos');
     expect(category.is_active).toBeTruthy();
@@ -12,7 +12,7 @@ test('Deve criar uma categoria', () => {
 
 test('Deve criar uma categoria passando apenas o nome', () => {
     const category = new Category('Movie');
-    expect(category.id.value).toHaveLength(36);
+    expect(category.id).toHaveLength(36);
     expect(category.name).toBe('Movie');
     expect(category.description).toBe('');
     expect(category.is_active).toBeTruthy();
@@ -21,7 +21,7 @@ test('Deve criar uma categoria passando apenas o nome', () => {
 
 test('Deve criar uma categoria passando o id', () => {
     const category = new Category('Movie', 'My Videos', false, new Date(), new Id('723b8dcd-e9f2-4c33-8758-8bdcb8a862c5'));
-    expect(category.id.value).toBe('723b8dcd-e9f2-4c33-8758-8bdcb8a862c5');
+    expect(category.id).toBe('723b8dcd-e9f2-4c33-8758-8bdcb8a862c5');
 });
 
 test('Deve retornar excessão ao criar categoria com id inválido', () => {
@@ -50,7 +50,7 @@ test('Deve retornar excessão ao atualizar categoria com nome maior que 120 cara
 
 test('Deve criar uma categoria inativa', () => {
     const category = new Category('Movie', 'My Videos', false, new Date('2022-09-03T20:34:09.323Z'));
-    expect(category.id.value).toHaveLength(36);
+    expect(category.id).toHaveLength(36);
     expect(category.name).toBe('Movie');
     expect(category.description).toBe('My Videos');
     expect(category.is_active).toBeFalsy();
